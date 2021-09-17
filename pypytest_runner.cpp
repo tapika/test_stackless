@@ -22,22 +22,14 @@ extern char* pythonPath;
 extern char* sourcePath;
 
 int main(int argc, char **argv) {
-
-    // 1.
-    rpython_startup_code();
-    pypy_init_threads();
-
     int r;
 
-    // 2.
     r = initCffiModule();
     if (r == -1)
     {
         PyErr_Print();
         return 0;
     }
-    // 3.
-    //pypy_setup_home(pythonPath, 1);
     
     path p = sourcePath;
     
